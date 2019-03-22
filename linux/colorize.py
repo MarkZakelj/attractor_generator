@@ -1,4 +1,3 @@
-
 import numpy as np
 from math import atan, pi, sqrt
 from PIL import ImageDraw, Image
@@ -7,8 +6,8 @@ import os
 border = 40
 
 def calc_color1(x, y, value, width, height):
-    w = x/width
-    h = y/height
+    w = x*1.0/width
+    h = y*1.0/height
     i = 255
     j = 255
     k = 160
@@ -62,8 +61,8 @@ def main():
 		width = np.shape(matrix)[0]
 		height = np.shape(matrix)[1]
 		make_picture(matrix, width, height)
-	except OSError:
-		print("\tRun 'make_matrix.exe' ('make_matrix.out' on linux) first to generate matrix of values, then run colorize.py")
+	except (OSError, IOError):
+		print("\tRun 'make_matrix.exe' ('make_matrix' on linux) first to generate matrix of values, then run colorize.py")
 
 if __name__ == '__main__':
     main()
