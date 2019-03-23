@@ -6,7 +6,7 @@ Before using the program, you need two python libraries:
 - pillow
 - numpy
     
-To install them, use:  
+To install them, use these lines in command line:  
 `pip install pillow` and `pip install numpy`  
   
 ## Basic usage
