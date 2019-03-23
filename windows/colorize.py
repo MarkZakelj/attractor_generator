@@ -1,4 +1,3 @@
-
 import numpy as np
 from math import atan, pi, sqrt
 from PIL import ImageDraw, Image
@@ -11,12 +10,12 @@ def calc_color1(x, y, value, width, height):
     h = y*1.0/height
     i = 255
     j = 255
-    k = 160
+    k = 255
     #calculate r g b values
-    r = int((2*i/pi)*atan(sqrt(value)*10*h*w/i))
-    g = int((2*j/pi)*atan(value*10/j))
-    b = int((2*k/pi)*atan(h*value*10/k))
-    return (r, 255-g, 255-b)
+    r = int((2*i/pi)*atan(value/i))
+    g = int((2*j/pi)*atan(value/j))
+    b = int((2*k/pi)*atan(value/k))
+    return (255-r, 255-g, 255-b)
 
 def calc_color2(x, y, value, width, height):
     w = x/width
