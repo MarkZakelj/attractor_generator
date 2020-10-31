@@ -1,6 +1,5 @@
 # attractor_generator
 Generate colorized representations of De Jong attractors.  
-Knowledge of python recommended!
 ## Installation
 Before using the program, you need two python libraries:
 - pillow
