@@ -5,29 +5,31 @@ import os
 
 border = 40
 
+
 def calc_color1(x, y, value, width, height):
-    w = x*1.0/width
-    h = y*1.0/height
+    w = x * 1.0 / width
+    h = y * 1.0 / height
     i = 255
     j = 255
     k = 160
-    #calculate r g b values
-    r = int((2*i/pi)*atan(value)/i)
-    g = int((2*j/pi)*atan(value/j))
-    b = int((2*k/pi)*atan(value/k))
-    return (255-r, 255-g, 255-b)
+    # calculate r g b values
+    r = int((2 * i / pi) * atan(value) / i)
+    g = int((2 * j / pi) * atan(value / j))
+    b = int((2 * k / pi) * atan(value / k))
+    return (255 - r, 255 - g, 255 - b)
+
 
 def calc_color2(x, y, value, width, height):
-    w = x/width
-    h = y/height
+    w = x / width
+    h = y / height
     i = 255
     j = 255
     k = 200
-    #calculate r g b values
-    r = int((2*i/pi)*atan(sqrt(value)*10*h*w/i))
-    g = int((2*j/pi)*atan(value*2/j))
-    b = int((2*k/pi)*atan(h*value*10/k))
-    return (255-r, 255-g, 255-b)
+    # calculate r g b values
+    r = int((2 * i / pi) * atan(sqrt(value) * 10 * h * w / i))
+    g = int((2 * j / pi) * atan(value * 2 / j))
+    b = int((2 * k / pi) * atan(h * value * 10 / k))
+    return 255 - r, 255 - g, 255 - b
 
 
 def make_picture(matrix, width, height):
@@ -38,12 +40,13 @@ def make_picture(matrix, width, height):
             r, g, b = calc_color1(x, y, matrix[x][y], width, height)
             draw.point((x, y), fill=(r, g, b))
         else:
-        	r, g, b = calc_color1(x, y, border, width, height)
-        	draw.point((x, y), fill=(r, g, b))
+            r, g, b = calc_color1(x, y, border, width, height)
+            draw.point((x, y), fill=(r, g, b))
     save_image(im)
 
+
 def save_image(im):
-    #save picture to directory "attractor_pictures"
+    # save picture to directory "attractor_pictures"
     i = 0
     current_path = os.getcwd()
     if not os.path.exists("{}/attractor_pictures".format(current_path)):
@@ -52,19 +55,18 @@ def save_image(im):
     while os.path.exists("attractor_{0:0=3}.png".format(i)):
         i += 1
     im.save("attractor_{0:0=3}.png".format(i))
-        
 
 
 def main():
-	try:
-		matrix = np.genfromtxt('matrix.csv', delimiter=',', dtype=int)
-		width = np.shape(matrix)[0]
-		height = np.shape(matrix)[1]
-		make_picture(matrix, width, height)
-	except (OSError, IOError):
-		print("\tRun 'make_matrix.exe' ('make_matrix' on linux) first to generate matrix of values, then run colorize.py")
+    try:
+        matrix = np.genfromtxt('matrix.csv', delimiter=',', dtype=int)
+        width = np.shape(matrix)[0]
+        height = np.shape(matrix)[1]
+        make_picture(matrix, width, height)
+    except (OSError, IOError):
+        print(
+            "\tRun 'make_matrix.exe' ('make_matrix' on linux) first to generate matrix of values, then run colorize.py")
+
 
 if __name__ == '__main__':
     main()
-
-
