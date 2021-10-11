@@ -16,7 +16,8 @@ def calc_color1(x, y, value, width, height):
     r = int((2 * i / pi) * atan(value) / i)
     g = int((2 * j / pi) * atan(value / j))
     b = int((2 * k / pi) * atan(value / k))
-    return (255 - r, 255 - g, 255 - b)
+    return 255 - r, 255 - g, 255 - b
+
 
 
 def calc_color2(x, y, value, width, height):
