@@ -13,6 +13,8 @@ double next_y(double x, double y, double c, double d) {
 void generate_values(int** matrix, double a, double b, double c, double d,long n_iters, int width, int height) {
 	double x = 1.000;
 	double y = 1.000;
+	double xtmp;
+	double ytmp;
 	for(long i = 0; i < n_iters; i++) {
 		//scale and translate to fit into matrix
 		int x_mat = round(x*0.2*width + width/2);
@@ -21,8 +23,8 @@ void generate_values(int** matrix, double a, double b, double c, double d,long n
 		if(x_mat < width && y_mat < height) {
 			matrix[y_mat][x_mat] += 1;
 		}
-		double xtmp = next_x(x, y, a, b);
-		double ytmp = next_y(x, y, c, d);
+		xtmp = next_x(x, y, a, b);
+		ytmp = next_y(x, y, c, d);
 		x = xtmp;
 		y = ytmp;
 	}
