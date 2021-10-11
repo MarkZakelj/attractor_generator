@@ -9,11 +9,10 @@ To install them, use these lines in command line:
 `pip install pillow` and `pip install numpy`  
   
 ## Basic usage
-To generate attractors, open command line in the proper directory (linux or windows)  
-and run 'make_matrix.exe' (just 'make_matrix' on linux) with 5 (or 7) arguments.  
-  
-example_1: `make_matrix.exe -2.3 1.5 -1.9 2.1 300000000`-windows  
-example_2: `./make_matrix -2.3 1.5 -1.9 2.1 250000000 1200 1200`-linux   
+To generate attractors, first compile make_matrix.c and run `*.out` file
+with 5 (or 7) arguments.  
+   
+example: `./make_matrix -2.3 1.5 -1.9 2.1 250000000 1200 1200`   
   
 Then run colorize.py: `python colorize.py`  
   
